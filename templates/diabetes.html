@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Diabetes Disease Prediction</title>
+  </head>
+  <body class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'home' %}">Disease Predictor</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link mr-3" href="{% url 'heart' %}"
+            >Heart Disease Prediction
+          </a>
+          <a
+            class="nav-item nav-link btn-success btn btn-rounded text-white mr-3"
+            href="{% url 'diabetes' %}"
+            >Diabetes Prediction <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link mr-3" href="{% url 'breast' %}"
+            >Breast Cancer Prediction</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="display-3 my-2 text-center">Diabetes Disease Prediction</div>
+      <hr />
+      {% if context %}
+      <div class="display-4 my-2 text-center">
+        You {{ context }} diabetes disease.
+      </div>
+      {% endif %}
+
+      <!-- 
+      19:46:19 09 Oct, 2019 by Arjun Adhikari
+      Form Here 
+      -->
+      <div class="mt-4">
+        <form class="row" method="POST" action="{% url 'diabetes' %}">
+          {% csrf_token %}
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="pregnancies">Pregnancies</label>
+              <input
+                type="number"
+                class="form-control"
+                id="pregnancies"
+                value="0"
+                name="pregnancies"
+              />
+            </div>
+            <div class="form-group">
+              <label for="glucose">Glucose</label>
+              <input
+                type="number"
+                class="form-control"
+                id="glucose"
+                value="0"
+                name="glucose"
+              />
+            </div>
+            <div class="form-group">
+              <label for="bloodpressure">Blood Pressure</label>
+              <input
+                type="number"
+                class="form-control"
+                id="bloodpressure"
+                value="0"
+                name="bloodpressure"
+              />
+            </div>
+            <div class="form-group">
+              <label for="skinthickness">Skin Thickness</label>
+              <input
+                type="number"
+                class="form-control"
+                id="skinthickness"
+                value="0"
+                name="skinthickness"
+              />
+            </div>
+            <div class="form-group">
+              <label for="insulin">Insulin</label>
+              <input
+                type="number"
+                class="form-control"
+                id="insulin"
+                value="0"
+                name="insulin"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="bmi">BMI</label>
+              <input
+                type="number"
+                class="form-control"
+                id="bmi"
+                value="0"
+                name="bmi"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pedigree">Diabetes Prediction Function</label>
+              <input
+                type="number"
+                class="form-control"
+                id="pedigree"
+                value="0"
+                name="pedigree"
+              />
+            </div>
+            <div class="form-group mb-5">
+              <label for="age">Age</label>
+              <input
+                type="number"
+                class="form-control"
+                id="age"
+                value="0"
+                name="age"
+              />
+            </div>
+            <button type="submit" class="btn-lg btn-block btn btn-primary mb-5">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
