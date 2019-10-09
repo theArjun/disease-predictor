@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Heart Disease Prediction</title>
+  </head>
+  <body class="bg-danger text-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'home' %}">Disease Predictor</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a
+            class="nav-item nav-link btn btn-success text-white mr-3"
+            href="{% url 'heart' %}"
+            >Heart Disease Prediction <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link mr-3" href="{% url 'diabetes' %}"
+            >Diabetes Prediction</a
+          >
+          <a class="nav-item nav-link mr-3" href="{% url 'breast' %}"
+            >Breast Cancer Prediction</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="display-3 my-2 text-center">Heart Disease Prediction</div>
+      <hr />
+      {% if context %}
+      <div class="display-4 my-2 text-center">
+        You {{ context }} heart disease.
+      </div>
+      {% endif %}
+
+      <!-- 
+      19:46:19 09 Oct, 2019 by Arjun Adhikari
+      Form Here 
+      -->
+      <div class="mt-4">
+        <form class="row" method="POST" action="{% url 'heart' %}">
+          {% csrf_token %}
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input
+                type="number"
+                class="form-control"
+                id="age"
+                value="0"
+                name="age"
+              />
+            </div>
+            <div class="form-group">
+              <label for="sex">Sex</label>
+              <input
+                type="number"
+                class="form-control"
+                id="sex"
+                value="0"
+                name="sex"
+              />
+            </div>
+            <div class="form-group">
+              <label for="cp">CP</label>
+              <input
+                type="number"
+                class="form-control"
+                id="cp"
+                value="0"
+                name="cp"
+              />
+            </div>
+            <div class="form-group">
+              <label for="trestbps">TRESTBPS</label>
+              <input
+                type="number"
+                class="form-control"
+                id="trestbps"
+                value="0"
+                name="trestbps"
+              />
+            </div>
+            <div class="form-group">
+              <label for="chol">CHOL</label>
+              <input
+                type="number"
+                class="form-control"
+                id="chol"
+                value="0"
+                name="chol"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="fbs">FBS</label>
+              <input
+                type="number"
+                class="form-control"
+                id="fbs"
+                value="0"
+                name="fbs"
+              />
+            </div>
+            <div class="form-group">
+              <label for="restecg">RESTECG</label>
+              <input
+                type="number"
+                class="form-control"
+                id="restecg"
+                value="0"
+                name="restecg"
+              />
+            </div>
+            <div class="form-group">
+              <label for="thalach">THALACH</label>
+              <input
+                type="number"
+                class="form-control"
+                id="thalach"
+                value="0"
+                name="thalach"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exang">EXANG</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exang"
+                value="0"
+                name="exang"
+              />
+            </div>
+            <div class="form-group">
+              <label for="oldpeak">OLDPEAK</label>
+              <input
+                type="number"
+                class="form-control"
+                id="oldpeak"
+                value="0"
+                name="oldpeak"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="slope">SLOPE</label>
+              <input
+                type="number"
+                class="form-control"
+                id="slope"
+                value="0"
+                name="slope"
+              />
+            </div>
+            <div class="form-group">
+              <label for="ca">CA</label>
+              <input
+                type="number"
+                class="form-control"
+                id="ca"
+                value="0"
+                name="ca"
+              />
+            </div>
+            <div class="form-group mb-5">
+              <label for="thal">THAL</label>
+              <input
+                type="number"
+                class="form-control"
+                id="thal"
+                value="0"
+                name="thal"
+              />
+            </div>
+
+            <button type="submit" class="btn-lg btn-block btn btn-primary mb-5">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
