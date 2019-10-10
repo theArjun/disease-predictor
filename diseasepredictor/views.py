@@ -190,3 +190,10 @@ def home(request):
 
     return render(request,
                   'home.html')
+
+""" 
+20:07:20 10 Oct, 2019 by Arjun Adhikari
+Handling 404 error pages. 
+"""
+def handler404(request):
+    return render(request, '404.html', status=404)
