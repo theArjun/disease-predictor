@@ -72,7 +72,11 @@ def heart(request):
     return render(request,
                   'heart.html',
                   {
-                      'context': value
+                      'context': value,
+                      'title': 'Heart Disease Prediction',
+                      'active': 'btn btn-success peach-gradient text-white',
+                      'heart': True,
+                      'background': 'bg-danger text-white'
                   })
 
 
@@ -127,8 +131,13 @@ def diabetes(request):
     return render(request,
                   'diabetes.html',
                   {
-                      'context': value
-                  })
+                      'context': value,
+                      'title': 'Diabetes Disease Prediction',
+                      'active': 'btn btn-success peach-gradient text-white',
+                      'diabetes': True,
+                      'background': 'bg-dark text-white'
+                  }
+                  )
 
 
 def breast(request):
@@ -182,7 +191,11 @@ def breast(request):
     return render(request,
                   'breast.html',
                   {
-                      'context': value
+                      'context': value,
+                      'title': 'Breast Cancer Prediction',
+                      'active': 'btn btn-success peach-gradient text-white',
+                      'breast': True,
+                      'background': 'bg-primary text-white'
                   })
 
 
@@ -191,9 +204,12 @@ def home(request):
     return render(request,
                   'home.html')
 
+
 """ 
 20:07:20 10 Oct, 2019 by Arjun Adhikari
 Handling 404 error pages. 
 """
+
+
 def handler404(request):
     return render(request, '404.html', status=404)
