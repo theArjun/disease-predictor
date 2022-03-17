@@ -1,1 +1,1 @@
-web: gunicorn diseasepredictor.wsgi
+web: gunicorn core.wsgi

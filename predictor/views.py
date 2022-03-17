@@ -4,6 +4,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
+from predictor.forms import BreastCancerForm, DiabetesForm, HeartDiseaseForm
+
 
 def heart(request):
     """ 
@@ -76,7 +78,7 @@ def heart(request):
                       'title': 'Heart Disease Prediction',
                       'active': 'btn btn-success peach-gradient text-white',
                       'heart': True,
-                      'background': 'bg-danger text-white'
+                      'form': HeartDiseaseForm(),
                   })
 
 
@@ -131,11 +133,11 @@ def diabetes(request):
     return render(request,
                   'diabetes.html',
                   {
-                      'context': value,
+                      'result': value,
                       'title': 'Diabetes Disease Prediction',
                       'active': 'btn btn-success peach-gradient text-white',
                       'diabetes': True,
-                      'background': 'bg-dark text-white'
+                      'form': DiabetesForm(),
                   }
                   )
 
@@ -191,11 +193,11 @@ def breast(request):
     return render(request,
                   'breast.html',
                   {
-                      'context': value,
+                      'result': value,
                       'title': 'Breast Cancer Prediction',
                       'active': 'btn btn-success peach-gradient text-white',
                       'breast': True,
-                      'background': 'bg-primary text-white'
+                      'form': BreastCancerForm(),
                   })
 
 

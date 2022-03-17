@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,43 +17,12 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>{{title}}</title>
   </head>
   <body class="{{background}}">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'home' %}">Disease Predictor</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a
-            class="nav-item nav-link mr-3 {% if heart %} {{active}} {% endif %} "
-            href="{% url 'heart' %}"
-            >Heart Disease Prediction
-          </a>
-          <a
-            class="nav-item nav-link mr-3 {% if diabetes %} {{active}} {% endif %} "
-            href="{% url 'diabetes' %}"
-            >Diabetes Prediction
-          </a>
-          <a
-            class="nav-item nav-link mr-3 {% if breast %} {{active}} {% endif %} "
-            href="{% url 'breast' %}"
-            >Breast Cancer Prediction</a
-          >
-        </div>
-      </div>
-    </nav>
+    {% include 'navbar.html' %}
     {% block content %} {% endblock %}
 
     <script
